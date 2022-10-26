@@ -105,7 +105,6 @@ having operation <> ''
 order by type, operation, k_symbol;
 
 -- Using the same query as before
-
 select round(avg(amount),2) - round(avg(payments),2) as Avg_Balance, status, duration
 from bank.loan
 group by status, duration

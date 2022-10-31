@@ -1,13 +1,5 @@
--- 2.08.1 SQL - PYTHON --
+-- 2.08 --
 use bank;
-
-select *
-from loan
-limit 10;
-
-select *
-from loan
-limit :L;
 
 
 -- 2.08.2 WINDOW FUNCTIONS --

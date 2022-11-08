@@ -1,0 +1,4 @@
+-- 3.04 LAB SQL DATABASE NORMALIZATION --
+use sakila;
+
+-- 1)

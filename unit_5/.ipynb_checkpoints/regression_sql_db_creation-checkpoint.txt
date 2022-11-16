@@ -1,0 +1,53 @@
+
+1. Create a database called `credit_card_classification`.
+
+create database credit_card_classification_new;
+use credit_card_classification_new;
+
+
+2. Create a table `credit_card_data` with the same columns as given in the csv file. You can find the names of the headers for the table in the `creditcardmarketing.xlsx` file. Use the same column names as the names in the excel file. Please make sure you use the correct data types for each of the columns.
+
+drop table if exists credit_card_data;
+create table credit_card_data  (
+	Customer_Number	int,
+    Offer_Accepted varchar(20),
+	Reward varchar(20),  
+	Mailer_Type varchar(20),
+    Income_Level varchar(20),
+    Bank_Accounts_Open int,
+    Overdraft_Protection varchar(20) ,
+    Credit_Rating varchar(20),
+    Credit_Cards_Held int,
+    Homes_Owned int,
+    Household_Size int,
+    Own_Your_Home varchar(20),
+    Average_Balance float,
+    Q1_Balance float,
+    Q2_Balance float,
+    Q3_Balance float,
+    Q4_Balance float,
+    primary key (Customer_Number)
+    );
+    
+
+
+3. Import the data from the csv file into the table. Before you import the data into the empty table, make sure that you have deleted the headers from the csv file. (in this case we have already deleted the header names from the csv files). To not modify the original data, if you want you can create a copy of the csv file as well. Note you might have to use the following queries to give permission to SQL to import data from csv files in bulk:
+
+```sql
+SHOW VARIABLES LIKE 'local_infile'; -- This query would show you the status of the variable ‘local_infile’. If it is off, use the next command, otherwise you should be good to go
+
+SET GLOBAL local_infile = 1;
+```
+
+SHOW VARIABLES LIKE 'local_infile';
+
+SET GLOBAL local_infile = 1;
+
+load data local infile './01-lesson_plans/05-unit_mid_bootcamp_project_week/classification/creditcardmarketing.csv'
+into table credit_card_data
+fields terminated by ',';
+
+
+4.  Select all the data from table `credit_card_data` to check if the data was imported correctly.
+
+select * from credit_card_data;
